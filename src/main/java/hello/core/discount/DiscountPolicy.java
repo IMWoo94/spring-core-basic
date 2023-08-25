@@ -7,5 +7,5 @@ public interface DiscountPolicy {
 	/**
 	 * @retrun 할인 대상 금액
 	 */
-	int discont(Member member, int price);
+	int discount(Member member, int price);
 }
