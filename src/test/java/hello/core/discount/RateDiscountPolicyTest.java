@@ -9,7 +9,7 @@ import hello.core.member.Member;
 
 class RateDiscountPolicyTest {
 
-	RateDiscountPolicy discountPolicy = new RateDiscountPolicy();
+	DiscountPolicy discountPolicy = new RateDiscountPolicy();
 
 	@Test
 	@DisplayName("VIP는 10% 할인이 적용되어야 한다.")
