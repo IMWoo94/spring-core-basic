@@ -20,5 +20,6 @@ public class AutoAppConfigTest {
 		Assertions.assertThat(memberService).isInstanceOf(MemberService.class);
 		OrderService orderService = ac.getBean(OrderServiceImpl.class);
 		System.out.println(orderService);
+
 	}
 }

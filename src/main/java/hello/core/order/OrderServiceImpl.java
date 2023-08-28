@@ -1,15 +1,16 @@
 package hello.core.order;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import hello.core.annotation.MainDiscountPolicy;
 import hello.core.discount.DiscountPolicy;
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
-import lombok.RequiredArgsConstructor;
 
 @Component
 // lombok 어노테이션을 사용해서 final이 붙은 필드의 constructor를 자동으로 만들어 준다.
-@RequiredArgsConstructor
+// @RequiredArgsConstructor
 public class OrderServiceImpl implements OrderService {
 
 	// 필드 주입의 경우 스프링 DI를 사용하지 않으면 바꿀수가 없다.
@@ -23,12 +24,13 @@ public class OrderServiceImpl implements OrderService {
 	private final DiscountPolicy discountPolicy;
 
 	// 생성자가 딱 1개만 존재한다면 Autowired를 선언하지 않아도 자동으로 지정되어 처리 된다.
-	// @Autowired
-	// public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
-	// 	System.out.println("OrderServiceImpl constructor");
-	// 	this.memberRepository = memberRepository;
-	// 	this.discountPolicy = discountPolicy;
-	// }
+	@Autowired
+	public OrderServiceImpl(MemberRepository memberRepository, @MainDiscountPolicy DiscountPolicy discountPolicy) {
+		System.out.println("OrderServiceImpl constructor");
+		System.out.println(discountPolicy);
+		this.memberRepository = memberRepository;
+		this.discountPolicy = discountPolicy;
+	}
 
 	// 주입객체가 없는 경우 required = false 를 선언하면 빈 생성이 없는 상태로 진행 된다.
 	// @Autowired(required = false)
