@@ -39,6 +39,8 @@ dependencies {
     // javax.inject.Provider 추가 시작
     implementation 'javax.inject:javax.inject:1'
     // javax.inject.Provider 추가 끝
+
+    implementation 'org.springframework.boot:spring-boot-starter-web'
 }
 
 tasks.named('test') {
